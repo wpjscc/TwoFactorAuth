@@ -17,13 +17,13 @@ Optionally, you may need:
 * [sockets](https://www.php.net/manual/en/book.sockets.php) if you are using `NTPTimeProvider`
 * [endroid/qr-code](https://github.com/endroid/qr-code) if using `EndroidQrCodeProvider` or `EndroidQrCodeWithLogoProvider`.
 * [bacon/bacon-qr-code](https://github.com/Bacon/BaconQrCode) if using `BaconQrCodeProvider`.
-* [php-curl library](http://php.net/manual/en/book.curl.php) when using an external QR Code provider such as `QRServerProvider`, `ImageChartsQRCodeProvider`, `QRicketProvider` or any other custom provider connecting to an external service.
+* [react/http](https://github.com/reactphp/http) and [react/async](https://github.com/reactphp/async) when using an external QR Code provider such as `QRServerProvider`, `ImageChartsQRCodeProvider`, `QRicketProvider` or any other custom provider connecting to an external service.
 
 ## Installation
 
 The best way of installing this library is with composer:
 
-`php composer.phar require robthree/twofactorauth`
+`php composer.phar require wpjscc/twofactorauth`
 
 ## Usage
 
