@@ -1,5 +1,13 @@
 # RobThree\TwoFactorAuth changelog
 
+# Version 3.1.0
+
+## Changes
+
+* Replace `curl` with `react/http` async HTTP requests in external QR code providers, adapted via `react/async`'s `await()`.
+* Add `react/async` and `react/http` as required dependencies.
+* Rename Composer package to `wpjscc/twofactorauth` for Packagist publishing.
+
 # Version 3.x
 
 ## Breaking changes
