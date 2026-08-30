@@ -34,6 +34,7 @@ You can keep the old behavior by setting `80` as argument to `createSecret()` (n
 
 ## Other changes
 
+* External HTTP QR Code providers now use [react/http](https://github.com/reactphp/http) with [react/async](https://github.com/reactphp/async) `await()` instead of cURL. Public APIs and QR provider logic are unchanged.
 * The new PHP attribute [SensitiveParameter](https://www.php.net/manual/en/class.sensitiveparameter.php) was added to the code, to prevent accidental leak of secrets in stack traces.
 * Likely not breaking anything, but now all external QR Code providers use HTTPS with a verified certificate. PR [#126](https://github.com/RobThree/TwoFactorAuth/pull/126).
 * The CSPRNG is now exclusively using `random_bytes()` PHP function. Previously a fallback to `openssl` or non cryptographically secure PRNG existed, they have been removed. PR [#122](https://github.com/RobThree/TwoFactorAuth/pull/122).

@@ -4,28 +4,39 @@ declare(strict_types=1);
 
 namespace RobThree\Auth\Providers\Qr;
 
+use Exception;
+use Psr\Http\Message\ResponseInterface;
+
+use function React\Async\await;
+
+use React\Http\Browser;
+use React\Socket\Connector;
+
 abstract class BaseHTTPQRCodeProvider implements IQRCodeProvider
 {
     protected bool $verifyssl = true;
 
     protected function getContent(string $url): string
     {
-        $curlhandle = curl_init();
-
-        curl_setopt_array($curlhandle, array(
-            CURLOPT_URL => $url,
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_CONNECTTIMEOUT => 10,
-            CURLOPT_DNS_CACHE_TIMEOUT => 10,
-            CURLOPT_TIMEOUT => 10,
-            CURLOPT_SSL_VERIFYPEER => $this->verifyssl,
-            CURLOPT_USERAGENT => 'TwoFactorAuth',
+        $connector = new Connector(array(
+            'timeout' => 10,
+            'tls' => array(
+                'verify_peer' => $this->verifyssl,
+                'verify_peer_name' => $this->verifyssl,
+            ),
         ));
-        $data = curl_exec($curlhandle);
-        if ($data === false) {
-            throw new QRException(curl_error($curlhandle));
+
+        $browser = (new Browser($connector))
+            ->withTimeout(10)
+            ->withHeader('User-Agent', 'TwoFactorAuth');
+
+        try {
+            /** @var ResponseInterface $response */
+            $response = await($browser->get($url));
+        } catch (Exception $e) {
+            throw new QRException($e->getMessage());
         }
 
-        return $data;
+        return (string) $response->getBody();
     }
 }

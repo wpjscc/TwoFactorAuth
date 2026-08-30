@@ -7,9 +7,13 @@
     <ol>
         <?php
             // in practice you would require the composer loader if it was not already part of your framework or project
-            spl_autoload_register(function ($className) {
-                include_once str_replace(array('RobThree\\Auth', '\\'), array(__DIR__.'/../lib', '/'), $className) . '.php';
-            });
+            if (is_file(__DIR__ . '/../vendor/autoload.php')) {
+                require __DIR__ . '/../vendor/autoload.php';
+            } else {
+                spl_autoload_register(function ($className) {
+                    include_once str_replace(array('RobThree\\Auth', '\\'), array(__DIR__.'/../lib', '/'), $className) . '.php';
+                });
+            }
 
             $tfa = new RobThree\Auth\TwoFactorAuth(
                 new RobThree\Auth\Providers\Qr\QRServerProvider(),

@@ -1,6 +1,6 @@
 # ![Logo](https://raw.githubusercontent.com/RobThree/TwoFactorAuth/master/logo.png) PHP library for Two Factor Authentication
 
-[![Build status](https://img.shields.io/github/actions/workflow/status/robthree/twofactorauth/test.yml?branch=master)](https://github.com/RobThree/TwoFactorAuth/actions?query=branch%3Amaster) [![Latest Stable Version](https://img.shields.io/packagist/v/robthree/twofactorauth.svg?style=flat-square)](https://packagist.org/packages/robthree/twofactorauth) [![License](https://img.shields.io/packagist/l/robthree/twofactorauth.svg?style=flat-square)](LICENSE) [![Downloads](https://img.shields.io/packagist/dt/robthree/twofactorauth.svg?style=flat-square)](https://packagist.org/packages/robthree/twofactorauth) [![PayPal donate button](http://img.shields.io/badge/paypal-donate-orange.svg?style=flat-square)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6MB5M2SQLP636 "Keep me off the streets")
+[![Build status](https://img.shields.io/github/actions/workflow/status/wpjscc/twofactorauth/test.yml?branch=master)](https://github.com/wpjscc/TwoFactorAuth/actions?query=branch%3Amaster) [![Latest Stable Version](https://img.shields.io/packagist/v/wpjscc/twofactorauth.svg?style=flat-square)](https://packagist.org/packages/wpjscc/twofactorauth) [![License](https://img.shields.io/packagist/l/wpjscc/twofactorauth.svg?style=flat-square)](LICENSE) [![Downloads](https://img.shields.io/packagist/dt/wpjscc/twofactorauth.svg?style=flat-square)](https://packagist.org/packages/wpjscc/twofactorauth) [![PayPal donate button](http://img.shields.io/badge/paypal-donate-orange.svg?style=flat-square)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6MB5M2SQLP636 "Keep me off the streets")
 
 PHP library for [two-factor (or multi-factor) authentication](http://en.wikipedia.org/wiki/Multi-factor_authentication) using [TOTP](http://en.wikipedia.org/wiki/Time-based_One-time_Password_Algorithm) and [QR-codes](http://en.wikipedia.org/wiki/QR_code). Inspired by, based on but most importantly an *improvement* on '[PHPGangsta/GoogleAuthenticator](https://github.com/PHPGangsta/GoogleAuthenticator)'. There's a [.Net implementation](https://github.com/RobThree/TwoFactorAuth.Net) of this library as well.
 
@@ -17,13 +17,13 @@ Optionally, you may need:
 * [sockets](https://www.php.net/manual/en/book.sockets.php) if you are using `NTPTimeProvider`
 * [endroid/qr-code](https://github.com/endroid/qr-code) if using `EndroidQrCodeProvider` or `EndroidQrCodeWithLogoProvider`.
 * [bacon/bacon-qr-code](https://github.com/Bacon/BaconQrCode) if using `BaconQrCodeProvider`.
-* [php-curl library](http://php.net/manual/en/book.curl.php) when using an external QR Code provider such as `QRServerProvider`, `ImageChartsQRCodeProvider`, `QRicketProvider` or any other custom provider connecting to an external service.
+* [react/http](https://github.com/reactphp/http) and [react/async](https://github.com/reactphp/async) when using an external QR Code provider such as `QRServerProvider`, `ImageChartsQRCodeProvider`, `QRicketProvider` or any other custom provider connecting to an external service.
 
 ## Installation
 
 The best way of installing this library is with composer:
 
-`php composer.phar require robthree/twofactorauth`
+`php composer.phar require wpjscc/twofactorauth`
 
 ## Usage
 
