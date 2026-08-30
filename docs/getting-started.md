@@ -8,7 +8,7 @@ title: Getting Started
 The best way of making use of this project is by installing it with [composer](https://getcomposer.org/doc/01-basic-usage.md).
 
 ```
-composer require robthree/twofactorauth
+composer require wpjscc/twofactorauth
 ```
 
 ## 2. Create an instance
